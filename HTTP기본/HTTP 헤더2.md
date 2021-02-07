@@ -40,3 +40,28 @@
 > - 캐시 만료일을 정확한 날짜로 지정
 > - 지금은 Cache-Control : max-age 권장
 > - Cache-Control : max-age 과 같이 사용시 Expires는 무시됨
+
+#### 프록시 캐시
+- 원 서버 직접 접근 (origin server) - 원 서버가 미국에 있을 경우 속도가 오래 걸릴 것임
+- 프록시 캐시
+> - 한국 어딘가에 프록시 캐시 서버 구성
+> - 프록시 캐시 서버가 미국 서버(원서버)에 직접 접근
+> - 클라이언트는 프록시 캐시 서버에 접근 (첫번째 접근시에는 원서버 접근)
+
+- 캐시지시어(directives) [기타]
+> - Cache-Control : public - 응답이 public 캐시에 저장되어도 됨
+> - Cache-Control : private - 응답이 요청한 해당 사용자만을 위한 것. (기본값)
+> - Cache-Control : s-maxage - 프록시 캐시에만 적용되는 max-age 값
+> - Age : 60(HTTP 헤더) - 원서버(origin) 에서 응답 후 프록시 캐시 내에 머문 시간(초단위)
+
+#### 캐시 무효화
+- 확실한 캐시 무효화 응답
+- 브라우져가 임의대로 캐시를 할 수도 있음. (그런데 절대로 캐시를 하면 안되는 경우가 있음 이럴때 무효화씀)
+> - Cache-Control : no-cache, no-store, must-revalidate
+> - Pragma : no-cache (HTTP 1.0 하위호환)
+
+- must-revalidate : 캐시 만료 후 최초 조회시 원 서버에서 검증해야함
+- no-cache 외에 must-revalidate 까지 쓰는 이유?
+> - 프록시 서버 <-> 원서버 간 순간 네트워크 단절이 될 경우 캐시된 데이터라도 보여주려는 설정이 되어 있을 수 있음
+> - no-cache일 때, 위 경우에는 과거 데이터(캐시)가 보여질 수 있음. must-revalidate의 경우 네트워크 단절일 경우, 그냥 504 응답
+> - 그래서 no-cache, no-store, must-revalidate 이걸 다 써주는 것임.
