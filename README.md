@@ -9,3 +9,4 @@
 - [HTTP 메서드 활용](https://github.com/bbbnam/STUDY/blob/main/HTTP%EA%B8%B0%EB%B3%B8/HTTP%20%EB%A9%94%EC%84%9C%EB%93%9C%20%ED%99%9C%EC%9A%A9.md)
 - [HTTP 상태코드](https://github.com/bbbnam/STUDY/blob/main/HTTP%EA%B8%B0%EB%B3%B8/HTTP%20%EC%83%81%ED%83%9C%EC%BD%94%EB%93%9C.md)
 - [HTTP 헤더1](https://github.com/bbbnam/STUDY/blob/main/HTTP%EA%B8%B0%EB%B3%B8/HTTP%20%ED%97%A4%EB%8D%941.md)
+- [HTTP 헤더2](https://github.com/bbbnam/STUDY/blob/main/HTTP%EA%B8%B0%EB%B3%B8/HTTP%20%ED%97%A4%EB%8D%942.md)
